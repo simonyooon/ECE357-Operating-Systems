@@ -1,0 +1,14 @@
+asmcat.exe: asmcat.o
+	ld -m elf_i386 asmcat.o -o asmcat.exe
+
+asmcat.o: asmcat.S
+	as --32 asmcat.S -o asmcat.o
+
+clean:
+	rm -f *.exe *.o *.stackdump *~
+
+backup:
+	test -d backups || mkdir backups
+	cp *.c backups
+	cp *.h backups
+	cp Makefile backups

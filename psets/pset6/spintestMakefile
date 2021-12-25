@@ -1,0 +1,20 @@
+spintest.exe: spintest.o spinlock.o tas64.o
+	gcc -o spintest.exe spintest.o spinlock.o tas64.o
+
+spintest.o: spintest.c
+	gcc -c spintest.c
+
+spinlock.o: spinlock.c spinlock.h
+	gcc -c spinlock.c
+
+tas64.o: tas64.S
+	gcc -c tas64.S
+
+clean:
+	rm -f *.exe *.o *.stackdump *~
+
+backup:
+	test -d backups || mkdir backups
+	cp *.c backups
+	cp *.h backups
+	cp Makefile backups
