@@ -1,4 +1,4 @@
-Project Descriptions : 
+Project Descriptions: 
 
     1. Use of system calls in a simple concatentation program
 
